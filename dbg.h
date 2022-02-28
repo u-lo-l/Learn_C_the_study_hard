@@ -31,7 +31,7 @@
 # define log_info(M,...) fprintf(stderr, "[INFO] (%s:%d)" M "\n",\
 		__FILE__, __LINE__, ##__VA_ARGS__)
 // A가 참인 경우 에러메세지를 로그로 남긴 후 함수 내 error:로 이동한다.
-# define check(A, M, ...) if(!A) {log_err(M, ##__VA_ARGS__);\
+# define check(A, M, ...) if(!(A)) {log_err(M, ##__VA_ARGS__);\
 		errno = 0; goto error;}
 // 함수 내 어디에나 놓을 수 있지만 실행되면 안되는 매크로이다.
 // 실행하는 일이 발생하면 오류 메세지를 출력한 다음 error로 점프한다.
